@@ -232,13 +232,3 @@ sim-ormawa-hmj/
 └── tools/
     └── create_admin.php
 ```
-
-## Catatan produksi
-
-Sebelum deploy:
-- ganti semua password demo;
-- gunakan HTTPS;
-- set `APP_DEBUG=false`;
-- gunakan akun database yang hak aksesnya terbatas;
-- set permission folder `public/uploads` dengan benar;
-- lakukan backup database berkala.
