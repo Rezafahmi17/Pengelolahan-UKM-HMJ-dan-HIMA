@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" role="img" aria-label="SIM ORMAWA">
+  <defs><linearGradient id="g" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#0c6b3f"/><stop offset="1" stop-color="#08482d"/></linearGradient></defs>
+  <circle cx="40" cy="40" r="37" fill="url(#g)"/>
+  <circle cx="40" cy="40" r="30" fill="none" stroke="#f5c84c" stroke-width="3" opacity=".95"/>
+  <path d="M21 49c8-3 12-11 14-24 4 9 10 16 24 18-7 1-13 4-17 12-4-5-10-7-21-6Z" fill="#fff"/>
+  <path d="M27 52c8 0 13 2 17 7 3-7 8-11 15-13" fill="none" stroke="#f5c84c" stroke-width="4" stroke-linecap="round"/>
+</svg>

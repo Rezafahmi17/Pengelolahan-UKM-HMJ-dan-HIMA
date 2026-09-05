@@ -1,0 +1,8 @@
+<?php
+$title='Jurusan & Program Studi';require_super_admin();
+$rows=db()->query('SELECT j.jurusan_id,j.kode_jurusan,j.nama_jurusan,j.status,COUNT(ps.prodi_id) jumlah_prodi FROM jurusan j LEFT JOIN program_studi ps ON ps.jurusan_id=j.jurusan_id GROUP BY j.jurusan_id,j.kode_jurusan,j.nama_jurusan,j.status ORDER BY j.jurusan_id')->fetchAll();
+$prodi=db()->query('SELECT ps.*,j.nama_jurusan FROM program_studi ps JOIN jurusan j ON j.jurusan_id=ps.jurusan_id ORDER BY j.jurusan_id,ps.jenjang,ps.nama_prodi')->fetchAll();
+?>
+<div class="page-head"><div><span class="eyebrow dark">Master Akademik</span><h1>8 Jurusan & 31 Program Studi</h1><p>Master ini menjadi dasar relasi HMJ per jurusan dan HIMA per program studi.</p></div></div>
+<div class="jurusan-admin-grid"><?php foreach($rows as $r):?><article class="panel mini-panel"><span class="tenant-type-chip hmj"><?= e($r['kode_jurusan']) ?></span><h3><?= e($r['nama_jurusan']) ?></h3><strong><?= (int)$r['jumlah_prodi'] ?> Prodi</strong><?= status_badge($r['status']) ?></article><?php endforeach;?></div>
+<section class="panel"><div class="panel-head"><div><h2>Daftar Program Studi</h2><p>Semua prodi dari database Anda.</p></div><input class="table-search" type="search" placeholder="Cari prodi..." data-table-search></div><div class="table-wrap"><table data-search-table><thead><tr><th>Kode</th><th>Jenjang</th><th>Program Studi</th><th>Jurusan</th><th>Status</th></tr></thead><tbody><?php foreach($prodi as $p):?><tr><td><?= e($p['kode_prodi']) ?></td><td><span class="badge badge-info"><?= e($p['jenjang']) ?></span></td><td><b><?= e($p['nama_prodi']) ?></b></td><td><?= e($p['nama_jurusan']) ?></td><td><?= status_badge($p['status']) ?></td></tr><?php endforeach;?></tbody></table></div></section>
